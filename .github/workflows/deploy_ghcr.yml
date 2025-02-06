@@ -77,7 +77,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:base
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:base
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -85,7 +85,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:base
+          tags: ghcr.io/ap-andersson/docker-baseimage:base
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_ghcr_mlat_client:
@@ -128,7 +128,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:mlatclient
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:mlatclient
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -136,7 +136,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:mlatclient
+          tags: ghcr.io/ap-andersson/docker-baseimage:mlatclient
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_ghcr_python:
@@ -183,7 +183,7 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v3.8.0
       # Build & Push Dockerfile.python (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:python
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:python
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -191,7 +191,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:python
+          tags: ghcr.io/ap-andersson/docker-baseimage:python
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_ghcr_rtlsdr:
@@ -233,7 +233,7 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v3.8.0
       # Build & Push Dockerfile.rtlsdr (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:rtlsdr
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:rtlsdr
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -241,7 +241,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:rtlsdr
+          tags: ghcr.io/ap-andersson/docker-baseimage:rtlsdr
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_ghcr_readsb-netonly:
@@ -283,7 +283,7 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v3.8.0
       # Build & Push Dockerfile.readsb-netonly (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:readsb-netonly
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:readsb-netonly
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -291,7 +291,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:readsb-netonly
+          tags: ghcr.io/ap-andersson/docker-baseimage:readsb-netonly
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_ghcr_readsb-full:
@@ -334,7 +334,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile.readsb-full (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:readsb-full
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:readsb-full
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -342,7 +342,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:readsb-full
+          tags: ghcr.io/ap-andersson/docker-baseimage:readsb-full
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_ghcr_acars-decoder:
@@ -385,7 +385,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile.acars (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:acars-decoder
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:acars-decoder
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -393,7 +393,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:acars-decoder
+          tags: ghcr.io/ap-andersson/docker-baseimage:acars-decoder
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_ghcr_acars-decoder-soapy:
@@ -436,7 +436,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile.acars (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:acars-decoder-soapy
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:acars-decoder-soapy
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -444,7 +444,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:acars-decoder-soapy
+          tags: ghcr.io/ap-andersson/docker-baseimage:acars-decoder-soapy
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_soapyrtlsdr:
@@ -487,7 +487,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:soapyrtlsdr
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:soapyrtlsdr
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -495,7 +495,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:soapyrtlsdr
+          tags: ghcr.io/ap-andersson/docker-baseimage:soapyrtlsdr
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_soapy-full:
@@ -538,7 +538,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:soapy-full
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:soapy-full
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -546,7 +546,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:soapy-full
+          tags: ghcr.io/ap-andersson/docker-baseimage:soapy-full
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_dump978-full:
@@ -589,7 +589,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:dump978-full
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:dump978-full
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -597,7 +597,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:dump978-full
+          tags: ghcr.io/ap-andersson/docker-baseimage:dump978-full
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_wreadsb:
@@ -640,7 +640,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:wreadsb
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:wreadsb
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -648,7 +648,7 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:wreadsb
+          tags: ghcr.io/ap-andersson/docker-baseimage:wreadsb
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_qemu:
@@ -691,7 +691,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.8.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
-      - name: Build & Push ghcr.io/sdr-enthusiasts/docker-baseimage:qemu
+      - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:qemu
         uses: docker/build-push-action@v6.13.0
         with:
           context: .
@@ -699,388 +699,5 @@ jobs:
           no-cache: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/sdr-enthusiasts/docker-baseimage:qemu
+          tags: ghcr.io/ap-andersson/docker-baseimage:qemu
           labels: ${{ steps.meta.outputs.labels }}
-
-  trigger_build_sdr-enthusiasts_docker-readsb-protobuf:
-    name: Trigger deploy of sdr-enthusiasts/docker-readsb-protobuf
-    needs: [deploy_ghcr_readsb-full]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-readsb-protobuf
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-acarsdec:
-    name: Trigger deploy of sdr-enthusiasts/docker-acarsdec
-    needs: [deploy_ghcr_acars-decoder-soapy]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-acarsdec
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-dumpvdl2:
-    name: Trigger deploy of sdr-enthusiasts/docker-dumpvdl2
-    needs: [deploy_ghcr_acars-decoder-soapy]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-dumpvdl2
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-vdlm2dec:
-    name: Trigger deploy of sdr-enthusiasts/docker-vdlm2dec
-    needs: [deploy_ghcr_acars-decoder-soapy]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-vdlm2dec
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-dumphfdl:
-    name: Trigger deploy of sdr-enthusiasts/docker-dumphfdl
-    needs: [deploy_ghcr_acars-decoder-soapy]
-    runs-on: ubuntu-latest
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-dumphfdl
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-acarshub-baseimage:
-    name: Trigger deploy of sdr-enthusiasts/docker-acarshub
-    needs: [deploy_ghcr_python]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-acarshub
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-airnavradar:
-    name: Trigger deploy of sdr-enthusiasts/docker-airnavradar
-    needs: [deploy_wreadsb, deploy_ghcr_mlat_client]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-airnavradar
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_beast-splitter:
-    name: Trigger deploy of sdr-enthusiasts/docker-beast-splitter
-    needs: [deploy_ghcr_base]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-beast-splitter
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-flightradar24:
-    name: Trigger deploy of sdr-enthusiasts/docker-flightradar24
-    needs: [deploy_qemu]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-flightradar24
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-radarvirtuel:
-    name: Trigger deploy of sdr-enthusiasts/docker-radarvirtuel
-    needs: [deploy_wreadsb, deploy_ghcr_mlat_client]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-radarvirtuel
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-tar1090:
-    name: Trigger deploy of sdr-enthusiasts/docker-tar1090
-    needs: [deploy_wreadsb, deploy_ghcr_mlat_client]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-tar1090
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-dump978:
-    name: Trigger deploy of sdr-enthusiasts/docker-dump978
-    needs: [deploy_dump978-full]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-dump978
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_docker-piaware:
-    name: Trigger deploy of sdr-enthusiasts/docker-piaware
-    needs: [deploy_dump978-full]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-piaware
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_adsbexchange:
-    name: Trigger deploy of sdr-enthusiasts/docker-adsbexchange
-    needs: [deploy_ghcr_python, deploy_ghcr_mlat_client]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-adsbexchange
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-adsbexchange"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_adsbhub:
-    name: Trigger deploy of sdr-enthusiasts/docker-adsbhub
-    needs: [deploy_ghcr_base]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-adsbhub
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-adsbhub"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_opensky_network:
-    name: Trigger deploy of sdr-enthusiasts/docker-opensky-network
-    needs: [deploy_ghcr_base]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-opensky-network
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-opensky-network"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_planefinder:
-    name: Trigger deploy of sdr-enthusiasts/docker-planefinder
-    needs: [deploy_qemu]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-planefinder
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-planefinder"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_acars_router:
-    name: Trigger deploy of sdr-enthusiasts/acars_router
-    needs: [deploy_ghcr_base]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/acars_router
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-baseimage"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_rtlsdrairband:
-    name: Trigger deploy of sdr-enthusiasts/docker-rtlsdrairband
-    needs: [deploy_ghcr_acars-decoder-soapy]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-rtlsdrairband
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-rtlsdrairband"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_airspy_adsb:
-    name: Trigger deploy of sdr-enthusiasts/airspy_adsb
-    needs: [deploy_ghcr_base]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/adsb_airspy
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/adsb_airspy"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_acars-oxide:
-    name: Trigger deploy of sdr-enthusiasts/acars-oxide
-    needs: [deploy_ghcr_rtlsdr]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/acars-oxide
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/acars-oxide"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_reverse_web_proxy:
-    name: Trigger deploy of sdr-enthusiasts/docker-reversewebproxy
-    needs: [deploy_ghcr_python]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-reversewebproxy
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-reversewebproxy"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_radar1090:
-    name: Trigger deploy of sdr-enthusiasts/docker-radar1090
-    needs: [deploy_ghcr_base]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-radar1090
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-radar1090"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref main --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
-
-  trigger_build_sdr-enthusiasts_flightairmap:
-    name: Trigger deploy of sdr-enthusiasts/docker-flightairmap
-    needs: [deploy_ghcr_base]
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.disable_upstream_triggers != 'true' }}
-    env:
-      WORKFLOW_AUTH_TOKEN: ${{ secrets.GH_PAT_MIKENYE }}
-      WORKFLOW_REPO: sdr-enthusiasts/docker-flightairmap
-      WORKFLOW_FILE: deploy.yml
-      WORKFLOW_REASON: "triggered via deploy_ghcr.yml in sdr-enthusiasts/docker-flightairmap"
-    steps:
-      - name: Trigger ${{ env.WORKFLOW_FILE }} in ${{ env.WORKFLOW_REPO }}
-        run: |
-          echo "$WORKFLOW_AUTH_TOKEN" | gh auth login --with-token
-          gh workflow run --ref master --repo "$WORKFLOW_REPO" "$WORKFLOW_FILE" -f reason="$WORKFLOW_REASON"
