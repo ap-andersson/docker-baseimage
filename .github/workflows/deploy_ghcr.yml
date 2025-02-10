@@ -29,7 +29,7 @@ env:
 jobs:
   hadolint:
     name: Run hadolint against docker files
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4.2.2
       - name: Pull hadolint/hadolint:latest Image
@@ -40,7 +40,7 @@ jobs:
   deploy_ghcr_base:
     name: Deploy base image to ghcr.io
     needs: [hadolint]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
@@ -69,12 +69,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:base
@@ -91,7 +91,7 @@ jobs:
   deploy_ghcr_mlat_client:
     name: Deploy MLAT client image to ghcr.io
     needs: [hadolint]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
@@ -120,12 +120,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:mlatclient
@@ -141,7 +141,7 @@ jobs:
 
   deploy_ghcr_python:
     name: Deploy python to ghcr.io
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [deploy_ghcr_base]
     permissions:
       contents: read
@@ -157,7 +157,7 @@ jobs:
       # Get changed files
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v45.0.6
+        uses: tj-actions/changed-files@v45.0.7
 
       # Log into ghcr (so we can push images)
       - name: Login to ghcr.io
@@ -176,12 +176,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
       # Build & Push Dockerfile.python (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:python
         uses: docker/build-push-action@v6.13.0
@@ -196,7 +196,7 @@ jobs:
 
   deploy_ghcr_rtlsdr:
     name: Deploy rtlsdr to ghcr.io
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [deploy_ghcr_base]
     permissions:
       contents: read
@@ -226,12 +226,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
       # Build & Push Dockerfile.rtlsdr (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:rtlsdr
         uses: docker/build-push-action@v6.13.0
@@ -246,7 +246,7 @@ jobs:
 
   deploy_ghcr_readsb-netonly:
     name: Deploy readsb-netonly to ghcr.io
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [deploy_ghcr_base]
     permissions:
       contents: read
@@ -276,12 +276,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
       # Build & Push Dockerfile.readsb-netonly (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:readsb-netonly
         uses: docker/build-push-action@v6.13.0
@@ -296,7 +296,7 @@ jobs:
 
   deploy_ghcr_readsb-full:
     name: Deploy readsb-full to ghcr.io
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [deploy_ghcr_base, deploy_ghcr_rtlsdr]
     permissions:
       contents: read
@@ -326,12 +326,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile.readsb-full (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:readsb-full
@@ -347,7 +347,7 @@ jobs:
 
   deploy_ghcr_acars-decoder:
     name: Deploy acars-decoder to ghcr.io
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [deploy_ghcr_base, deploy_ghcr_rtlsdr]
     permissions:
       contents: read
@@ -377,12 +377,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile.acars (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:acars-decoder
@@ -398,7 +398,7 @@ jobs:
 
   deploy_ghcr_acars-decoder-soapy:
     name: Deploy acars-decoder-soapy to ghcr.io
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [deploy_soapy-full]
     permissions:
       contents: read
@@ -428,12 +428,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile.acars (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:acars-decoder-soapy
@@ -450,7 +450,7 @@ jobs:
   deploy_soapyrtlsdr:
     name: Deploy soapyrtlsdr to ghcr.io
     needs: [deploy_ghcr_rtlsdr]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
@@ -479,12 +479,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:soapyrtlsdr
@@ -501,7 +501,7 @@ jobs:
   deploy_soapy-full:
     name: Deploy soapy-full to ghcr.io
     needs: [deploy_soapyrtlsdr]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
@@ -530,12 +530,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:soapy-full
@@ -552,7 +552,7 @@ jobs:
   deploy_dump978-full:
     name: Deploy dump978-full to ghcr.io
     needs: [deploy_wreadsb]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
@@ -581,12 +581,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:dump978-full
@@ -603,7 +603,7 @@ jobs:
   deploy_wreadsb:
     name: Deploy wreadsb to ghcr.io
     needs: [deploy_soapyrtlsdr, deploy_ghcr_mlat_client]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
@@ -632,12 +632,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:wreadsb
@@ -654,7 +654,7 @@ jobs:
   deploy_qemu:
     name: Deploy qemu to ghcr.io
     needs: [deploy_ghcr_base]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
@@ -683,12 +683,12 @@ jobs:
 
       # Set up QEMU for multi-arch builds
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.3.0
+        uses: docker/setup-qemu-action@v3.4.0
 
       # Set up buildx for multi platform builds
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.8.0
+        uses: docker/setup-buildx-action@v3.9.0
 
       # Build & Push Dockerfile (only push if this action was NOT triggered by a PR)
       - name: Build & Push ghcr.io/ap-andersson/docker-baseimage:qemu
